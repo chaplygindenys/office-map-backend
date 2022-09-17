@@ -1,0 +1,49 @@
+version: '3'
+services:
+  # office-map-backend-app:
+  #   build: .
+  #   container_name: node-office-map-backend-app
+  #   depends_on:
+  #     - office-map-backend-postgres
+  #   ports:
+  #     - ${PORT}:${PORT}
+  #   env_file: .env
+  #   environment:
+  #     - PORT=${PORT}
+  #     - POSTGRES_HOST=node-office-map-backend-database
+  #     - POSTGRES_PORT=${POSTGRES_PORT}
+  #     - POSTGRES_DB=${POSTGRES_DB}
+  #     - POSTGRES_USER=${POSTGRES_USER}
+  #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+  #   networks:
+  #     - office-map-backend-bridge
+  #   volumes:
+  #     - type: bind
+  #       source: ./src
+  #       target: /app/office-map-backend/src
+  #     - /app/office-map-backend/node_modules
+  #   restart: always
+
+  office-map-backend-postgres:
+    build: ./database/
+    container_name: node-office-map-backend-database
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+    env_file: .env
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    networks:
+      - office-map-backend-bridge
+    volumes:
+      - database:/var/lib/postgresql/data
+    restart: always
+
+networks:
+  office-map-backend-bridge:
+    name: office-map-backend-bridge
+    driver: bridge
+
+volumes:
+  database:
