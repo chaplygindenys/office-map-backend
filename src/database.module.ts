@@ -18,7 +18,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           extra: {
             host: configService.get('POSTGRES_HOST'),
           },
-          entities: ['./src/**/*.entity.ts'],
+          entities: ['dist/**/entities/*.entity.js'],
           synchronize: false,
         } as any;
         return config;
