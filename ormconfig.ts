@@ -20,6 +20,5 @@ export default {
   synchronize: false,
   logging: false,
   entities: ['./src/**/*.entity.ts'],
-  migrations: ['./src/db/migrations/**/*.ts'],
-  subscribers: ['./src/db/subscribers/**/*.ts'],
+  migrations: ['./src/migration/**/*.ts'],
 } as ConnectionOptions;

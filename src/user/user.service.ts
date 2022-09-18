@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {} from '@nestjs/typeorm';
+import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, Repository } from 'typeorm';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -8,7 +8,9 @@ import { StatusCodes } from 'http-status-codes';
 
 @Injectable()
 export class UserService {
+  @InjectRepository(UserEntity)
   private userRepositoriy: Repository<UserEntity>;
+
   async add(createUserDto: CreateUserDto): Promise<UserEntity> {
     const user = await this.userRepositoriy.create({
       ...createUserDto,
