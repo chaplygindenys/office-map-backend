@@ -1,7 +1,6 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-// import * as dbConfig from 'ormconfig';
 
 @Module({
   imports: [
@@ -18,9 +17,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
           extra: {
             host: configService.get('POSTGRES_HOST'),
           },
-          entities: ['dist/**/entities/*.entity.js'],
           synchronize: false,
         } as any;
+
+        if (configService.get('NODE_ENV') !== 'test') {
+          config.autoLoadEntities = true;
+        } else {
+          config.entities = ['./src/**/*.entity.ts'];
+        }
         return config;
       },
     }),
