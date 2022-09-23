@@ -8,6 +8,10 @@ export class UserEntity implements IUser {
   @PrimaryGeneratedColumn({ name: 'id', type: 'int4' })
   id: number;
 
+  @Column({ name: 'login', type: 'varchar', length: 1000 })
+  login: string;
+
+
   // @Column({ name: 'avatar', type: 'varchar', length: 1000 })
   // avatar: string;
 
@@ -20,8 +24,7 @@ export class UserEntity implements IUser {
   // @Column({ name: 'info_id', type: 'int4' })
   // infoId: number;
 
-  @Column({ name: 'login', type: 'varchar', length: 1000 })
-  login: string;
+ 
 
   // @Column({ name: 'profession', type: 'varchar', length: 1000 })
   // profession: string;
