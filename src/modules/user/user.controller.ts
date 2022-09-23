@@ -1,20 +1,10 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Put,
-  Param,
-  Delete,
-  HttpCode,
-  NotFoundException,
-  ForbiddenException,
-} from '@nestjs/common';
-import { StatusCodes } from 'http-status-codes';
-import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
-import { ParamDto } from 'src/dto/param.dto';
+import { Body, Controller, Delete, ForbiddenException, Get, HttpCode, NotFoundException, Param, Post, Put } from "@nestjs/common";
+import { StatusCodes } from "http-status-codes";
+import { ParamDto } from "../dto/param.dto";
+import { CreateUserDto } from "./dto/create-user.dto";
+import { UpdateUserDto } from "./dto/update-user.dto";
+import { UserService } from "./user.service";
+
 
 @Controller('users')
 export class UserController {

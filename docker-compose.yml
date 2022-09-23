@@ -1,5 +1,19 @@
 version: '3'
 services:
+
+#   pgadmin:
+#     restart: always
+#     image: dpage/pgadmin4
+#     container_name: pgadmin_container
+#     environment:
+#       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+#       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+#     ports:
+#       - ${PGADMIN_PORT}:80
+#     volumes:
+#       - my-data:/var/lib/pgadmin
+
+
   # office-map-backend-app:
   #   build: .
   #   container_name: node-office-map-backend-app

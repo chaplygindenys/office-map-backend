@@ -1,12 +1,7 @@
-import { Exclude } from 'class-transformer';
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
-import { IUser } from '../../types/index';
+import { Exclude } from "class-transformer";
+import { IUser } from "src/modules/types";
+import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+
 
 @Entity('users')
 export class UserEntity implements IUser {
