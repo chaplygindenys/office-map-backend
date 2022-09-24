@@ -1,7 +1,12 @@
-import { Exclude } from "class-transformer";
-import { IUser } from "src/modules/types";
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-
+import { Exclude } from 'class-transformer';
+import { IUser } from 'src/modules/types';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
 
 @Entity('users')
 export class UserEntity implements IUser {
@@ -11,32 +16,26 @@ export class UserEntity implements IUser {
   @Column({ name: 'login', type: 'varchar', length: 1000 })
   login: string;
 
+  @Column({ name: 'avatar', type: 'varchar', length: 1000, nullable: true })
+  avatar: string;
 
-  // @Column({ name: 'avatar', type: 'varchar', length: 1000 })
-  // avatar: string;
+  @Column({ name: 'first_name', type: 'varchar', length: 1000, nullable: true })
+  firstName: string;
 
-  // @Column({ name: 'first_name', type: 'varchar', length: 1000 })
-  // firstName: string;
+  @Column({ name: 'last_name', type: 'varchar', length: 1000, nullable: true })
+  lastName: string;
 
-  // @Column({ name: 'last_name', type: 'varchar', length: 1000 })
-  // lastName: string;
+  @Column({ name: 'profession', type: 'varchar', length: 1000, nullable: true })
+  profession: string;
 
-  // @Column({ name: 'info_id', type: 'int4' })
-  // infoId: number;
+  @Column({ name: 'telegram', type: 'int8', nullable: true })
+  telegramId: number;
 
- 
+  @Column({ name: 'instagram', type: 'varchar', length: 1000, nullable: true })
+  instagram: string;
 
-  // @Column({ name: 'profession', type: 'varchar', length: 1000 })
-  // profession: string;
-
-  // @Column({ name: 'telegram', type: 'varchar', length: 1000 })
-  // telegram: string;
-
-  // @Column({ name: 'instagram', type: 'varchar', length: 1000 })
-  // instagram: string;
-
-  // @Column({ name: 'linkedIn', type: 'varchar', length: 1000 })
-  // linkedIn: string;
+  @Column({ name: 'linkedIn', type: 'varchar', length: 1000, nullable: true })
+  linkedIn: string;
 
   @Exclude()
   @CreateDateColumn({
